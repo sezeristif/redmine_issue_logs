@@ -3,7 +3,7 @@
 Redmine plugin for logging issues. For example if you have an issue with status "New". If you change your issue's status to "Solved" you can see how much time your team spent on that issue's new status. 
 
 
-= Installing
+= Installation
 
 1. Clone this repository into `redmine/plugins`.
 
