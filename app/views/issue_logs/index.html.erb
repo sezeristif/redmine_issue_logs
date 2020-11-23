@@ -1,0 +1,25 @@
+<h1> Issue Logs</h1>
+<hr>
+<p>Sort Time By:
+<%= link_to 'Asc', { :controller => 'issue_logs', :action=>'index', :project_id => @project, sort: 'ASC' } %> |
+<%= link_to 'Desc', { :controller => 'issue_logs', :action=>'index', :project_id => @project, sort: 'DESC' } %>
+</p>
+
+<table class="list issues">
+  <tr>
+    <th>Issue Subject</th>
+    <th>New Status</th>
+    <th>Old Status</th>
+    <th>Time Spent on Old Status</th>
+    <th>Initiating User</th>
+  </tr>
+  <% @logs.each do |log| %>
+    <tr>
+      <td><%= log.issue.subject %></td>
+      <td><%= status_finder(log.new_status) %></td>
+      <td><%= status_finder(log.old_status) %></td>
+      <td><%= seconds_to_hms(log.time_spent) %></td>
+      <td><%= find_user(log.initiating_user_id) %></td>
+    </tr>
+  <% end %>
+</table>
